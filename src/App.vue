@@ -1,9 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout__header--scroll">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Weather small app</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+          <router-link class="mdl-button mdl-js-button mdl-js-ripple-effect" to="/">Weather</router-link>
+          <router-link class="mdl-button mdl-js-button mdl-js-ripple-effect" to="/about">About app</router-link>
+        </nav>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <router-view/>
+    </main>
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
@@ -12,19 +22,47 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+
+  .mdl {
+    &-layout {
+    background-image: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+      &__header-row {
+        background: linear-gradient(to bottom, rgba(#000, 1), rgba(#000, 0));
+      }
+
+      &-title {
+        letter-spacing: 1.5px;
+      }
+    }
+
+    &-button {
+      color: #fff;
+    }
+  }
 }
 
-#nav {
-  padding: 30px;
+html {
+  scrollbar-color: white black;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  .mdl-layout__content {
+    scrollbar-width: thin;
+  }
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
   }
 }
 </style>
