@@ -26,10 +26,10 @@
 
   .mdl {
     &-layout {
-    background-image: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+      background-image: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
 
       &__header-row {
         background: linear-gradient(to bottom, rgba(#000, 1), rgba(#000, 0));
