@@ -1,7 +1,16 @@
 <template>
-  <div class="home">
-    <Search v-on:search-city="searchWeather"/>
+<div class="home">
+  <Search v-on:search-city="searchWeather"/>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet">WEATHER ICON + DESCRIPTION</div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">TEMP + FEELS LIKE TEMP</div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">MAX/MIN TEMP</div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">RAIN/SNOW</div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">HUMIDITY</div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">PRESSURE</div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">WIND</div>
   </div>
+</div>
 </template>
 
 <script>
@@ -38,3 +47,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.mdl {
+  &-grid {
+    max-width: 1000px;
+    margin-top: 50px;
+  }
+}
+</style>

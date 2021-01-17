@@ -31,6 +31,7 @@ export default {
 .mdl-card {
   align-items: center;
   min-height: 0;
+  max-width: 330px;
   color: #222;
   margin: auto;
 }
