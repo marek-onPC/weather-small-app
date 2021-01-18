@@ -1,5 +1,5 @@
 <template>
-  <div class="mdl-card">
+  <div class="mdl-card mdl-shadow--4dp">
     <div class="mdl-textfield mdl-js-textfield">
       <input class="mdl-textfield__input" type="text" id="search_city" v-model="searchCity" v-on:keyup="searchNameInputed">
       <label class="mdl-textfield__label" for="search_city">City...</label>
@@ -33,6 +33,6 @@ export default {
   min-height: 0;
   max-width: 330px;
   color: #222;
-  margin: auto;
+  margin: 20px auto;
 }
 </style>
