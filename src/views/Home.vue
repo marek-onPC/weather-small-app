@@ -2,7 +2,7 @@
 <div class="home">
   <Search v-on:search-city="searchWeather"/>
   <div class="mdl-grid" v-if="weatherData !== ''">
-    <div class="mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet">
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
       <div class="mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title mdl-card--expand">
           <h2 class="mdl-card__title-text">{{ weatherData.name }}</h2>
@@ -13,12 +13,69 @@
         </div>
       </div>
     </div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">TEMP + FEELS LIKE TEMP</div>
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">MAX/MIN TEMP</div>
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">RAIN/SNOW</div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">HUMIDITY</div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">PRESSURE</div>
-    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">WIND</div>
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--12-col-tablet">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text">Now: {{ weatherData.main.temp }} °C</p>
+          <p class="mdl-card__title-text">Real feel: {{ weatherData.main.feels_like }} °C</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Temperatures</strong>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text">Max: {{ weatherData.main.temp_max }} °C</p>
+          <p class="mdl-card__title-text">Min: {{ weatherData.main.temp_min }} °C</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Temperatures</strong>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet" v-if="weatherData.rain || weatherData.snow">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text" v-if="weatherData.rain">Rain: {{ weatherData.rain['1h'] }} mm<sup>2</sup>/h</p>
+          <p class="mdl-card__title-text" v-if="weatherData.snow">Snow: {{ weatherData.snow['1h'] }} mm<sup>2</sup>/h</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Rain & Snow</strong>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text">{{ weatherData.main.humidity }} %</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Humidity</strong>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text">{{ weatherData.main.pressure }} hPa</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Pressure</strong>
+        </div>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <p class="mdl-card__title-text">{{ weatherData.wind.speed }} m/s</p>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <strong>Wind speed</strong>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -81,7 +138,7 @@ export default {
       &-text {
         font-size: 32px;
         font-weight: 500;
-        text-shadow: 1px 2px 2px #777;
+        text-shadow: 1px 1px 2px #777;
         padding-bottom: 40px;
       }
 
