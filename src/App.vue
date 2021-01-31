@@ -11,7 +11,9 @@
       </div>
     </header>
     <main class="mdl-layout__content">
-      <router-view/>
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
     </main>
   </div>
 </template>
@@ -64,5 +66,12 @@ html {
   ::-webkit-scrollbar-thumb {
     background: #fff;
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter-from, .fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -117,7 +117,15 @@ export default {
             this.searchWeather()
           }, 1500)
         })
+    },
+    refreshMDL () {
+      if (typeof componentHandler !== 'undefined') {
+        window.componentHandler.upgradeAllRegistered()
+      }
     }
+  },
+  mounted () {
+    this.refreshMDL()
   }
 }
 </script>
@@ -127,6 +135,7 @@ export default {
   &-grid {
     max-width: 1000px;
     margin-top: 50px;
+    justify-content: center;
   }
 
   &-card {
